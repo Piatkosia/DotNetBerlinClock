@@ -2,16 +2,23 @@
 using TechTalk.SpecFlow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
+using Autofac;
+using BerlinClock.Classes;
 
 namespace BerlinClock
 {
     [Binding]
     public class TheBerlinClockSteps
     {
-        private ITimeConverter berlinClock = new TimeConverter();
+        private Bootstrapper bootstrapper = new Bootstrapper();
+        private ITimeConverter berlinClock;
         private String theTime;
 
-        
+        public TheBerlinClockSteps()
+        {
+            IContainer container = bootstrapper.Bootstrap();
+            berlinClock = container.Resolve<ITimeConverter>();
+        }
         [When(@"the time is ""(.*)""")]
         public void WhenTheTimeIs(string time)
         {

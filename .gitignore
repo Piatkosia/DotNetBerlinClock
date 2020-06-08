@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/BerlinClock/v15
+/.vs/DotNetBerlinClock/v15
+/.vs
+/bin/Debug
+/obj
+/packages
+/BerlinClock.sln.DotSettings.user
+/BerlinClock.Tests/bin/Debug
+/BerlinClock.Tests/obj/Debug
